@@ -19,52 +19,52 @@
 
 # Check to make sure we aren't running as root
 if [[ $(id -u) = 0 ]]; then
-  echo "This script is not meant to run as root or sudo.  Please run as a normal user with ./restart.sh.  Exiting..."
+  echo "This script is not meant to run as root or sudo.  Please run as a normal user with ./vrestart.sh.  Exiting..."
   exit 1
 fi
 
 # Check if server is running
-if ! screen -list | grep -q "\.minecraft"; then
+if ! screen -list | grep -q "\.velocity"; then
   echo "Server is not currently running!"
   exit 1
 fi
 
-echo "Now sending restart notifications to server..."
+echo "Now sending restart notifications to proxy..."
 sleep 1
 # Sending warning messages to the console.
-screen -Rd minecraft -X stuff "say !!!ATTENTION!!! The server is restarting in 30 seconds! $(printf '\r')"
-echo "The server is restarting in 30 seconds!"
-sleep 23s
-screen -Rd minecraft -X stuff "say !!!ATTENTION!!! The server is restarting in 7 seconds! $(printf '\r')"
-echo "The server is restarting in 7 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 6 seconds! $(printf '\r')"
-echo "The server is restarting in 6 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 5 seconds! $(printf '\r')"
-echo "The server is restarting in 5 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 4 seconds! $(printf '\r')"
-echo "The server is restarting in 4 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 3 seconds! $(printf '\r')"
-echo "The server is restarting in 3 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 2 seconds! $(printf '\r')"
-echo "The server is restarting in 2 seconds!"
-sleep 1s
-screen -Rd minecraft -X stuff "say The server is restarting in 1 second! $(printf '\r')"
-echo "The server is restarting in 1 second!"
-sleep 1s
-screen -Rd minecraft -X stuff "say Closing the server...$(printf '\r')"
-screen -Rd minecraft -X stuff "stop $(printf '\r')"
+#screen -Rd minecraft -X stuff "say !!!ATTENTION!!! The server is restarting in 30 seconds! $(printf '\r')"
+#echo "The server is restarting in 30 seconds!"
+#sleep 23s
+#screen -Rd minecraft -X stuff "say !!!ATTENTION!!! The server is restarting in 7 seconds! $(printf '\r')"
+#echo "The server is restarting in 7 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 6 seconds! $(printf '\r')"
+#echo "The server is restarting in 6 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 5 seconds! $(printf '\r')"
+#echo "The server is restarting in 5 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 4 seconds! $(printf '\r')"
+#echo "The server is restarting in 4 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 3 seconds! $(printf '\r')"
+#echo "The server is restarting in 3 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 2 seconds! $(printf '\r')"
+#echo "The server is restarting in 2 seconds!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say The server is restarting in 1 second! $(printf '\r')"
+#echo "The server is restarting in 1 second!"
+#sleep 1s
+#screen -Rd minecraft -X stuff "say Closing the server...$(printf '\r')"
+screen -Rd velocity -X stuff "stop $(printf '\r')"
 
 # Wait up to 60 seconds for server to close
-echo "Closing the server..."
+echo "Closing the proxy..."
 echo "This could take up to 60 seconds."
 StopChecks=0
 while [ $StopChecks -lt 60 ]; do
-  if ! screen -list | grep -q "\.minecraft"; then
+  if ! screen -list | grep -q "\.velocity"; then
     break
   fi
   sleep 1;
@@ -72,9 +72,9 @@ while [ $StopChecks -lt 60 ]; do
 done
 
 # Force quit if server is still open
-if screen -list | grep -q "\.minecraft"; then
-  echo "Minecraft server still hasn't closed after 60 seconds, closing screen manually"
-  screen -S minecraft -X quit
+if screen -list | grep -q "\.velocity"; then
+  echo "Velocity proxy still hasn't closed after 60 seconds, closing screen manually"
+  screen -S velocity -X quit
 fi
 
 echo "Restarting now."
