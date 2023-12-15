@@ -358,7 +358,7 @@ Init_proxy(){
 
 }
 
-Start_proxy(){
+Start_Proxy(){
   sudo systemctl start velocity.service
 
   # Wait up to 30 seconds for server to start
@@ -434,7 +434,7 @@ Print_Style "Setup is complete." "$txBOLD$fgGREEN"
 Print_Style "Your proxy will now be started for the first time to test the service created for autostart." "$fgCYAN"
 #Print_Style "NOTE: World generation can take several minutes. Please be patient." "$fgYELLOW"
 sleep 5
-Start_Server
+Start_Proxy
 
 #Offer semi-auto optimization
 #Print_Style " " "$fgCYAN"
