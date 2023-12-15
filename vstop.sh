@@ -17,34 +17,34 @@ if ! screen -list | grep -q "\.velocity"; then
   exit 1
 fi
 
-echo "Sending server stop notification to players...."
+echo "Sending server stop request to proxy...."
 
 # Sending warning messages to the console.
-screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 30 seconds! $(printf '\r')"
-echo "Stop sequence activated. Server will stop in 30 seconds!"
-sleep 23s
-screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 7 seconds! $(printf '\r')"
-echo "Stop sequence activated. Server will stop in 7 seconds!"
-sleep 1s
-screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 6 seconds!! $(printf '\r')"
-echo "Stop sequence activated. Server will stop in 6 seconds!"
-sleep 1s
-screen -Rd velocityt -X stuff "say Server will stop in 5 seconds! $(printf '\r')"
-echo "Server will stop in 5 seconds!"
-sleep 1s
-screen -Rd velocity -X stuff "say Server will stop in 4 seconds! $(printf '\r')"
-echo "Server will stop in 4 seconds!"
-sleep 1s
-screen -Rd velocity -X stuff "say Server will stop in 3 seconds! $(printf '\r')"
-echo "Server will stop in 3 seconds!"
-sleep 1s
-screen -Rd velocity -X stuff "say Server will stop in 2 seconds! $(printf '\r')"
-echo "Server will stop in 2 seconds!"
-sleep 1s
-screen -Rd velocity -X stuff "say Server will stop in 1 second! $(printf '\r')"
-echo "Proxy will stop in 1 second!"
-sleep 1s
-screen -Rd velocity -X stuff "say Closing server...$(printf '\r')"
+#screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 30 seconds! $(printf '\r')"
+#echo "Stop sequence activated. Server will stop in 30 seconds!"
+#sleep 23s
+#screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 7 seconds! $(printf '\r')"
+#echo "Stop sequence activated. Server will stop in 7 seconds!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Stop sequence activated. Server will stop in 6 seconds!! $(printf '\r')"
+#echo "Stop sequence activated. Server will stop in 6 seconds!"
+#sleep 1s
+#screen -Rd velocityt -X stuff "say Server will stop in 5 seconds! $(printf '\r')"
+#echo "Server will stop in 5 seconds!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Server will stop in 4 seconds! $(printf '\r')"
+#echo "Server will stop in 4 seconds!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Server will stop in 3 seconds! $(printf '\r')"
+#echo "Server will stop in 3 seconds!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Server will stop in 2 seconds! $(printf '\r')"
+#echo "Server will stop in 2 seconds!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Server will stop in 1 second! $(printf '\r')"
+#echo "Proxy will stop in 1 second!"
+#sleep 1s
+#screen -Rd velocity -X stuff "say Closing server...$(printf '\r')"
 screen -Rd velocity -X stuff "stop$(printf '\r')"
 
 # Wait up to 60 seconds for server to close

@@ -1,14 +1,14 @@
 [Unit]
-Description=Minecraft Server Service
+Description=Velocity Proxy Service
 Documentation=https://github.com/R-Pi-Cubed/PiCubed-Minecraft-Installer
 After=network-online.target
 
 [Service]
 User=userxname
-WorkingDirectory=dirname/minecraft
+WorkingDirectory=dirname/velocity
 Type=forking
-ExecStart=/bin/bash dirname/minecraft/start.sh
-ExecStop=/bin/bash dirname/minecraft/stop.sh
+ExecStart=/bin/bash dirname/velocity/vstart.sh
+ExecStop=/bin/bash dirname/velocity/vstop.sh
 GuessMainPID=no
 TimeoutStartSec=600
 
