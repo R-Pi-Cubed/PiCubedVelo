@@ -1,0 +1,16 @@
+[Unit]
+Description=Velocity Proxy Service
+Documentation=https://github.com/R-Pi-Cubed/PiCubed-Minecraft-Installer
+After=network-online.target
+
+[Service]
+User=userxname
+WorkingDirectory=dirname/velocity
+Type=forking
+ExecStart=/bin/bash dirname/velocity/vstart.sh
+ExecStop=/bin/bash dirname/velocity/vstop.sh
+GuessMainPID=no
+TimeoutStartSec=600
+
+[Install]
+WantedBy=multi-user.target
